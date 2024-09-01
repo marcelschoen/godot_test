@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxahxuvbvhdhh"]
+[gd_scene load_steps=4 format=3 uid="uid://dxahxuvbvhdhh"]
 
 [ext_resource type="Texture2D" uid="uid://b6jtomblss4wj" path="res://dude left 1.png" id="1_6ic2f"]
+[ext_resource type="Script" path="res://player_sprite.gd" id="2_7bgo7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0sfun"]
 font_size = 64
@@ -13,10 +14,10 @@ light_mask = 3
 visibility_layer = 5
 
 [node name="Label" type="Label" parent="."]
-offset_left = 13.0
-offset_top = 150.0
-offset_right = 800.0
-offset_bottom = 524.0
+offset_left = 108.0
+offset_top = 272.0
+offset_right = 584.0
+offset_bottom = 369.0
 text = "Hello There"
 label_settings = SubResource("LabelSettings_0sfun")
 horizontal_alignment = 1
@@ -26,6 +27,18 @@ autowrap_mode = 2
 [node name="Player" type="Node" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(50, 50)
+position = Vector2(189, 179)
 texture = ExtResource("1_6ic2f")
-centered = false
+script = ExtResource("2_7bgo7")
+
+[node name="Timer" type="Timer" parent="Player/Sprite2D"]
+autostart = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 245.0
+offset_top = 396.0
+offset_right = 424.0
+offset_bottom = 445.0
+text = "Toggle Motion"
+
+[connection signal="pressed" from="Button" to="Player/Sprite2D" method="_on_button_pressed"]
