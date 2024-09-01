@@ -1,9 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxahxuvbvhdhh"]
+[gd_scene load_steps=3 format=3 uid="uid://dxahxuvbvhdhh"]
 
 [ext_resource type="Texture2D" uid="uid://b6jtomblss4wj" path="res://dude left 1.png" id="1_6ic2f"]
 
-[node name="Main" type="Node2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_0sfun"]
+font_size = 64
+font_color = Color(0.752624, 0.734181, 0.867906, 1)
+outline_size = 3
+outline_color = Color(0.415185, 0.88465, 0.850351, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Main" type="Node2D"]
+light_mask = 3
+visibility_layer = 5
+
+[node name="Label" type="Label" parent="."]
+offset_left = 13.0
+offset_top = 150.0
+offset_right = 800.0
+offset_bottom = 524.0
+text = "Hello There"
+label_settings = SubResource("LabelSettings_0sfun")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Player" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(50, 50)
 texture = ExtResource("1_6ic2f")
+centered = false
